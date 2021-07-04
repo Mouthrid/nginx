@@ -1,3 +1,20 @@
+# RUN
+
+```bash
+docker-compose up --build -d
+```
+
+# Files
+
+- docker-compose.yml
+- conf.d
+| - fintake.conf
+| - [new service conf]
+
+
+# docker-compose.yml
+
+```yml
 version: '3'
 services:
   nginx:
@@ -13,8 +30,10 @@ services:
       - ./conf.d:/etc/nginx/user.conf.d:ro
       - letsencrypt:/etc/letsencrypt
       - /home/ray_xie/fintake/vue/dist:/usr/share/nginx/html/fintake
+      - [new views for other service]
     networks:
       - fintake_flask
+      - [new docker network]
 
 volumes:
     letsencrypt:
@@ -22,3 +41,6 @@ volumes:
 networks:
   fintake_flask:
     external: true
+  [new docker network]
+    external: true
+```
