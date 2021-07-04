@@ -1,7 +1,7 @@
 version: '3'
 services:
   nginx:
-    container_name: nginx-t
+    container_name: nginx
     image: staticfloat/nginx-certbot
     # restart: unless-stopped
     ports:
@@ -9,11 +9,10 @@ services:
       - "443:443"
     environment:
       CERTBOT_EMAIL: birken1018@gmail.com
-      CERTBOT_STAGING: 1
     volumes:
       - ./conf.d:/etc/nginx/user.conf.d:ro
       - letsencrypt:/etc/letsencrypt
-      - ../fintake/vue/dist:/usr/share/nginx/html/fintake
+      - /home/ray_xie/fintake/vue/dist:/usr/share/nginx/html/fintake
     networks:
       - fintake_flask
 
