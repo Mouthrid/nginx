@@ -1,15 +1,22 @@
 # RUN
 
 ```bash
+# need to start backend services first
+# start
 docker-compose up --build -d
+
+# stop
+docker-compose down
 ```
 
 # Files
 
+```bash
 - docker-compose.yml
 - conf.d
 | - fintake.conf
 | - [new service conf]
+```
 
 
 # docker-compose.yml
