@@ -13,12 +13,17 @@ services:
       - ./conf.d:/etc/nginx/user.conf.d:ro
       - letsencrypt:/etc/letsencrypt
       - /home/ray_xie/fintake/vue/dist:/usr/share/nginx/html/fintake
+      - /home/ray_xie/covid19/build/docs/asciidoc:/usr/share/nginx/html/covid19-api
+      - /home/ray_xie/covid19/dist:/usr/share/nginx/html/covid19
     networks:
       - fintake_flask
+      - covid19_java
 
 volumes:
     letsencrypt:
 
 networks:
   fintake_flask:
+    external: true
+  covid19_java:
     external: true

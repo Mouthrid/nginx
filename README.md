@@ -14,8 +14,7 @@ docker-compose down
 ```bash
 - docker-compose.yml
 - conf.d
-| - fintake.conf
-| - [new service conf]
+| - nginx.conf
 ```
 
 
